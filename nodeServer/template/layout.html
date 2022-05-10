@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="">
+    
+<!-- jquery -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <script>
+    /*let search_results = {{search_results}}*/
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+
+
+  <title>Blockchain Marketplace</title>
+  </head>
+  <body class="fill">
+    
+
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <div class="container">
+    
+    <a class="navbar-brand font-standard" href="/">
+      <h1>Blockchain Marketplace</h1>
+    </a>
+
+    <div class="navbar-nav p-2 round_corners">
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          rolldown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item font-standard" href="/">1</a>
+          <a class="dropdown-item font-standard" href="/">2</a>
+          <a class="dropdown-item font-standard" href="/">3</a>
+        </div>
+      </div>
+      <a class="nav-item nav-link font-standard" href="/quiz">About</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="container p-5 round_corners">   
+        {% block content %}
+        {% endblock %}
+    </div>
+
+  </body>
+</html>
