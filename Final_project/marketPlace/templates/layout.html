@@ -5,9 +5,10 @@
 </style>
 <html lang="en">
   <head>
-    <title>Distress Signaling</title>
+    <title>Sticker Marketing</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="icon" href="data:,">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
@@ -19,100 +20,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+    <link rel="shortcut icon" href="">
+    <!-- fraimwork - css include -->
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    <!-- icon font - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fontawesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stroke-gap-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='icofont.css')}}">
+    <!-- animation - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='animate.css')}}">
+    <!-- carousel - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='slick-theme.css')}}">
+    <!-- popup - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='magnific-popup.css')}}">
+    <!-- jquery-ui - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='jquery-ui.css')}}">
+    <!-- select option - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nice-select.css')}}">
+    <!-- custom - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark basecolor">
-      <a class="navbar-brand" href="#">Distress Signaling</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              LEARN
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/learn/introduction">Introduction</a>
-              <a class="dropdown-item" href="/learn/maritime/intro">Maritime</a>
-              <a class="dropdown-item" href="/learn/wilderness/intro">Wilderness</a>
-              <a class="dropdown-item" href="/learn/streets/intro">Streets</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/test/homepage">TEST</a>
-          </li>
-        </ul>  
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarRecordMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarRecordMenu">
-              <a class="dropdown-item" href="/record/activity">Activities</a>
-              <a class="dropdown-item" href="/record/test">Previous Tests</a>
-              <a class="dropdown-item" href="/certificate">Certificate</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container-fluid " >   
-      <div class = "row">
-        <div class = "col-2 sidenav">
-          <nav class="nav" role="navigation">
-            <ul class="nav__list" style="list-style: none;">
-              <li id = "introlink"><a href="/learn/introduction" style="font-size: 20px; font-weight: bold">Introduction</a></li>
-              <li>
-                <input id="maritime" type="checkbox" hidden />
-                <label for="maritime"><span class="fa fa-angle-right"></span> <a href="/learn/maritime/intro"  style="font-size: 20px; font-weight: bold">Maritime</a></label>
-                <ul class="group-list">
-                  <li><a href="/learn/maritime/visual">Visual</a></li>
-                  <li><a href="/learn/maritime/sound">Sound</a></li>
-                  <li><a href="/learn/maritime/radio">Radio</a></li>
-                  <li><a href="/learn/maritime/video">Video</a></li>
-                  <li><a href="/learn/maritime/quiz">Mini Quiz</a></li>
-                </ul>
-              </li>
-              <li>
-                <input id="wilderness" type="checkbox" hidden />
-                <label for="wilderness"><span class="fa fa-angle-right"></span> <a href="/learn/wilderness/intro" style="font-size: 20px; font-weight: bold">Wilderness</a></label>
-                <ul class="group-list">
-                  <li><a href="/learn/wilderness/reflective">Reflective Surfaces</a></li>
-                  <li>
-                    <input id="wildernesssub" type="checkbox" hidden />
-                    <label for="wildernesssub"><span class="fa fa-angle-right"></span> <a href="/learn/wilderness/intro">Signal Fires</a></label>
-                    <ul class="group-list">
-                      <li><a href="/learn/wilderness/video" style="color: darkgrey">Signal Fire Video</a></li>
-                      <li><a href="/learn/wilderness/signal_fire_activity" style="color: darkgrey">Signal Fire Activity</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="/learn/wilderness/quiz">Mini Quiz</a></li>
-                </ul>
-              </li>
-              <li>
-                <input id="streets" type="checkbox" hidden />
-                <label for="streets"><span class="fa fa-angle-right"></span><a href="/learn/streets/intro"  style="font-size: 20px; font-weight: bold">Streets</a></label>
-                <ul class="group-list">
-                  <li><a href="/learn/streets/video">Video</a></li>
-                  <li><a href="/learn/streets/quiz">Mini Quiz</a></li>
-                </ul>
-              </li>
-              <li><a href="/test/homepage"  style="font-size: 20px; font-weight: bold">Test</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class = "col-10">
+    
+    <div class="container" >   
           {% block content %}
           {% endblock %}
-        </div>
-      </div>
     </div>
   
   </body>
