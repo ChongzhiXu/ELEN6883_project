@@ -8,25 +8,15 @@ from pymongo import MongoClient
 
 
 # MongoDB data service
-def mongoFind(acconut_id):
-    mongodb_url = "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    mongo_client = MongoClient(mongodb_url)
-    db = mongo_client["user_Database"]
-    Users = db["Users"]
-
-def mongoPost(account_id):
-    mongodb_url = "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    mongo_client = MongoClient(mongodb_url)
-    db = mongo_client["user_Database"]
-    Users = db["Users"]
-
-def mongoUpdate(account_id):
-    mongodb_url = "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    mongo_client = MongoClient(mongodb_url)
-    db = mongo_client["user_Database"]
-    Users = db["Users"]
-
-acct_token = "0xC9998e5863b08e480C5038ab06592D11D34E346c"
+def findItems():
+    mongoClient = pymongo.MongoClient(
+        "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
+    result = mongoClient['user_Database']['items'].aggregate([])
+    result = list(result)
+    for item in result:
+        del item["_id"]
+    items = result
+    return items
 
 
 # Server process route
@@ -36,42 +26,57 @@ def welcome():
 
 @app.route('/shop_items')
 def display():
-    mongoClient = pymongo.MongoClient("mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
-    result = mongoClient['user_Database']['items'].aggregate([{
-        '$match': {
-        'status': 'sale'
-    }
-    }])
-    result = list(result)
-    for item in result:
-        del item["_id"]
-    items = result
+    global items
+    items = findItems()
     return render_template('shop_grid.html', items=items)
-
-@app.route('/profile')
-def profile_info():
-    mongoClient = pymongo.MongoClient("mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
-    global acct_token
-    q={}
-    q['status'] = acct_token
-    q1={}
-    q1['$match'] = q
-    q2 = []
-    q2.append(q1)
-    result = mongoClient['user_Database']['items'].aggregate(q2)
-    result = list(result)
-    for item in result:
-        del item["_id"]
-    items = result
-    return render_template('profile_display.html', items=items)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_check():
+
     user_info = request.get_json()
-    if user_info['user_name'] in ['ChongzhiXu'] and user_info['password'] in ['12345678']:
-        return render_template('shop_grid.html')
+    print(user_info)
+    print(type(user_info))
+
+    # Check from mongoDB
+    mongodb_url = "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    mongo_client = MongoClient(mongodb_url)
+    db = mongo_client["user_Database"]
+    res = db.Users.find_one({'Name':user_info['user_name']})
+    print(res)
+
+    if user_info['user_name'] in res['Name'] and user_info['password'] in res['Account_pwd']:
+        # Token address and full info of user
+        global token_address, Login_user_info
+        Login_user_info = res
+        token_address = res['Ale_id']
+        return jsonify(url='shop_items')
     else:
-        return render_template('home_page.html')
+        return jsonify(url='')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def sign_up():
+    user_register = request.get_json()
+    print(user_register)
+    print(type(user_register))
+
+    # Load the info into mongoDB
+    mongodb_url = "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    mongo_client = MongoClient(mongodb_url)
+    db = mongo_client["user_Database"]
+    new_user_info ={
+        'Name': user_register['user_name'],
+        'Account_id': user_register['email'],
+        'Account_pwd': user_register['password'],
+        'Ale_id': user_register['ale_id'],
+        'Transaction_records':[],
+        'items_owned':[],
+        'items_selling':[]
+        }
+    res = db.Users.insert_one(new_user_info)
+
+    return jsonify(url='/')
+
 
 if __name__ == '__main__':
    app.run(debug = True)
