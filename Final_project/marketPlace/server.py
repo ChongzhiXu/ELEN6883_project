@@ -26,16 +26,7 @@ def mongoUpdate(account_id):
     db = mongo_client["user_Database"]
     Users = db["Users"]
 
-
-
-mongoClient = pymongo.MongoClient(
-    "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
-
-result = mongoClient['user_Database']['items'].aggregate([])
-result = list(result)
-for item in result:
-    del item["_id"]
-items = result
+acct_token = "0xC9998e5863b08e480C5038ab06592D11D34E346c"
 
 
 # Server process route
@@ -45,8 +36,34 @@ def welcome():
 
 @app.route('/shop_items')
 def display():
-   global items
-   return render_template('shop_grid.html', items=items)
+    mongoClient = pymongo.MongoClient("mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
+    result = mongoClient['user_Database']['items'].aggregate([{
+        '$match': {
+        'status': 'sale'
+    }
+    }])
+    result = list(result)
+    for item in result:
+        del item["_id"]
+    items = result
+    return render_template('shop_grid.html', items=items)
+
+@app.route('/profile')
+def profile_info():
+    mongoClient = pymongo.MongoClient("mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
+    global acct_token
+    q={}
+    q['status'] = acct_token
+    q1={}
+    q1['$match'] = q
+    q2 = []
+    q2.append(q1)
+    result = mongoClient['user_Database']['items'].aggregate(q2)
+    result = list(result)
+    for item in result:
+        del item["_id"]
+    items = result
+    return render_template('profile_display.html', items=items)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_check():
