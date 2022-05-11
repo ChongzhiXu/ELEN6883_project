@@ -8,10 +8,16 @@ from pymongo import MongoClient
 
 
 # MongoDB data service
-def findItems():
+def findItems(status):
     mongoClient = pymongo.MongoClient(
         "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
-    result = mongoClient['user_Database']['items'].aggregate([])
+    q={}
+    q['status'] = status
+    q1={}
+    q1['$match'] = q
+    q2 = []
+    q2.append(q1)
+    result = mongoClient['user_Database']['items'].aggregate(q2)
     result = list(result)
     for item in result:
         del item["_id"]
@@ -26,9 +32,13 @@ def welcome():
 
 @app.route('/shop_items')
 def display():
-    global items
-    items = findItems()
+    items = findItems('sale')
     return render_template('shop_grid.html', items=items)
+
+@app.route('/profile')
+def profile_info():
+    items = findItems(token_address)
+    return render_template('profile_display.html', items=items)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_check():
