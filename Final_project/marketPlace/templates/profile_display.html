@@ -29,12 +29,57 @@
     <link rel="stylesheet" href="{{url_for('static', filename='jquery-ui.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='nice-select.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-
-
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2990/2990669.png">
 
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand font-standard" style="font-weight: bolder;" href="/">Sticker MarketPlace</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active font-standard">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item font-standard">
+                    <a class="nav-link" href="/shop_items">MarketPlace</a>
+                </li>
+    
+                <li class="nav-item dropdown font-standard">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Referrence
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://computecoin-network.gitbook.io/computecoin/computecoin/about-computecoin-ccn">CCN DOCs</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="https://www.youtube.com/watch?v=FfQWVQy5kzg&t=4s">Contract tutorial</a>
+                    <a class="dropdown-item" href="https://www.youtube.com/watch?v=YVZS5c50roo&t=6s">Ale Wallet tutorial</a>
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarRecordMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarRecordMenu">
+                    <a class="dropdown-item" href="/profile">My profile</a>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- body_wrap - start -->
     <div class="body_wrap">
@@ -47,22 +92,20 @@
         </div>
         <!-- backtotop - end -->
 
-
-
-
-
         <!-- main body - start
         ================================================== -->
         <main>
-
-
-
             <!-- product_section - start
             ================================================== -->
             <section class="product_section section_space">
                 <div class="container">
-                    <div>My Items</div>
-
+                    <div class="font-standard" style="font-weight: bolder; font-size: large;">My Items</div>
+                    <br>
+                    <a href="/shop_items">
+                        <button type="button" class="btn btn-danger submit-button">Back to MarketPlace</button>
+                    </a>
+                    <br>
+                    <br>
                     <div class="row">
 
 
