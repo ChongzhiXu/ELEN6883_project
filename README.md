@@ -40,7 +40,21 @@
 
 
 ## Functionality
+1. Smart Contract Deployment<br/>
+    1. Alternating your own contract
+    2. Deploy the contact on CCN Test-net<br/>
 
+2. Ale Wallet Browser Access<br/>
+    1. User Payment Interface
+    2. Payment through CCN Huygens Network<br/>
+
+3. Flask Based DApp User Interface<br/>
+    1. MongoDB Backend(pymongo)
+        1. Store and provide user information: "Sign Up" enables insert new record in the collection, "Sign In" enables check if the information is in the coleection and give feed back on the interface
+        2. Store and provide items information, same as ablove
+        3. Record Transaction and items owning relationship
+    2. Items browsing and Jumping page payment function
+    3. Check the profile and make transaction
 
 ## Group Members:
 
