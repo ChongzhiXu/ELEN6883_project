@@ -35,6 +35,25 @@ def display():
     items = findItems('sale')
     return render_template('shop_grid.html', items=items)
 
+@app.route('/shop_items/<num>')
+def display_category(num):
+    mongoClient = pymongo.MongoClient(
+        "mongodb+srv://mongodb:Xcz990208@cluster0.rfss2.mongodb.net/user_Database?retryWrites=true&w=majority")
+    q={}
+    q['status'] = 'sale'
+    q['category'] = num
+    q1={}
+    q1['$match'] = q
+    q2=[]
+    q2.append(q1)
+    result = mongoClient['user_Database']['items'].aggregate(q2)
+    result = list(result)
+    for item in result:
+        del item["_id"]
+    items = result
+    return render_template('shop_grid.html', items=items)
+
+
 @app.route('/profile')
 def profile_info():
     items = findItems(token_address)
