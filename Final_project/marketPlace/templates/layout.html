@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="https://cdn-icons.flaticon.com/png/512/5025/premium/5025537.png?token=exp=1652405317~hmac=f540c5c7a0fdfc51fe5ef99647e7da04">
     <!-- fraimwork - css include -->
     <!-- <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
@@ -44,7 +44,24 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand font-standard" href="/">Sticker MarketPlace</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active font-standard">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item font-standard">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="container" >   
           {% block content %}
           {% endblock %}
