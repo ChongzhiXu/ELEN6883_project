@@ -3,77 +3,79 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'home_page.js') }}"></script>
 
+<div class="col-12" style="text-align: center;">
+    <div class="app-container">
+
+        <form id="sign_in_form">
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">User Name:</label>
+                <div id="form-user_name">
+                    <input type="text" class="form-control font-standard" id="input-usename" name="username" placeholder="username" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">Password:</label>
+                <div id="form-password">
+                    <input type="text" class="form-control font-standard" id="input-password" name="password" placeholder="password" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div>
+                    <button class="btn btn-danger font-standard" type="submit" onclick="submit_signin_Form()">Sign in</button>
+                </div>
+            </div>
+
+            <div id="go_sign_up" onclick="show_signup()">Don't have account? Create Account!</div>
+
+        </form>
+
+
+
+        <form id="sign_up_form">
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">User Name:</label>
+                <div id="form-user_name">
+                    <input type="text" class="form-control font-standard" id="input-usename-up" name="username" placeholder="username" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">Password:</label>
+                <div id="form-password">
+                    <input type="text" class="form-control font-standard" id="input-password-up" name="password" placeholder="password" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">Email:</label>
+                <div id="form-email">
+                    <input type="text" class="form-control font-standard" id="input-email" name="email" placeholder="email" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label font-standard">Ale Wallet ID:</label>
+                <div id="form-aleid">
+                    <input type="text" class="form-control font-standard" id="input-aleid" name="aleid" placeholder="ale Wallet Account ID" size="30" style="width: 270px;" required>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div>
+                    <button class="btn btn-dange font-standardr" type="submit" onclick="submit_signup_Form()">Sign up</button>
+                </div>
+            </div>
+
+            <div class="font-standard" id="go_sign_in" onclick="show_signin()">Already have account? Sign in Here!</div>
+        </form>
+    </div>
+</div>
+
 <div class="alert alert-primary" role="alert" id="success-notification"></div>
-
-<form id="sign_in_form">
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">User Name:</label>
-        <div class="col-sm-4" id="form-user_name">
-            <input type="text" class="form-control" id="input-usename" name="username" placeholder="username" required>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Password:</label>
-        <div class="col-sm-4" id="form-password">
-            <input type="text" class="form-control" id="input-password" name="password" placeholder="password" required>
-        </div>
-    </div>
-    
-    <div class="form-group row">
-        <div class="col-md-4"></div>
-        <div class="col-md-10">
-            <button class="btn btn-primary" type="submit" onclick="submit_signin_Form()">Sign in</button>
-        </div>
-    </div>
-
-    <a onclick="show_signup()">Don't have account? Create Account!</a>
-
-</form>
-
-
-
-<form id="sign_up_form">
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">User Name:</label>
-        <div class="col-sm-4" id="form-user_name">
-            <input type="text" class="form-control" id="input-usename-up" name="username" placeholder="username" required>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Password:</label>
-        <div class="col-sm-4" id="form-password">
-            <input type="text" class="form-control" id="input-password-up" name="password" placeholder="password" required>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Email:</label>
-        <div class="col-sm-4" id="form-email">
-            <input type="text" class="form-control" id="input-email" name="email" placeholder="email" required>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Ale Wallet ID:</label>
-        <div class="col-sm-4" id="form-aleid">
-            <input type="text" class="form-control" id="input-aleid" name="aleid" placeholder="Ale Wallet Account ID" required>
-        </div>
-    </div>
-    
-    <div class="form-group row">
-        <div class="col-md-4"></div>
-        <div class="col-md-10">
-            <button class="btn btn-primary" type="submit" onclick="submit_signup_Form()">Sign up</button>
-        </div>
-    </div>
-
-    <a onclick="show_signin()">Already have account? Sign in Here!</a>
-
-</form>
 
 {% endblock %}
 
