@@ -1,84 +1,84 @@
-{% extends "layout.html" %}
+<!-- Reference : https://www.cssscript.com/multilevel-accordion-menu-with-plain-html-css/ -->
+<!doctype html>
+<style>
+  .group-list a{font-size: 17px}
+</style>
+<html lang="en">
+  <head>
+    <title>Sticker Marketing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="data:,">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
-{% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'home_page.js') }}"></script>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2990/2990669.png">
+    <!-- fraimwork - css include -->
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    <!-- icon font - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fontawesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stroke-gap-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='icofont.css')}}">
+    <!-- animation - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='animate.css')}}">
+    <!-- carousel - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='slick-theme.css')}}">
+    <!-- popup - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='magnific-popup.css')}}">
+    <!-- jquery-ui - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='jquery-ui.css')}}">
+    <!-- select option - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nice-select.css')}}">
+    <!-- custom - css include -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand font-standard" style="font-weight: bolder;" href="/">Sticker MarketPlace</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active font-standard">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
 
-<div class="col-12" style="text-align: center;">
-    <div class="app-container">
-
-        <div class="font-standard badge_front">
-            Sticker MarketPlace DApp<br> Sign in to Access!
-        </div>
-        <form id="sign_in_form">
-
-            <div class="form-group row">
-                <label class="col-form-label font-standard">User Name:</label>
-                <div id="form-user_name">
-                    <input type="text" class="form-control font-standard" id="input-usename" name="username" placeholder="username" size="30" style="width: 270px;" required>
-                </div>
+          <li class="nav-item dropdown font-standard">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Referrence
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://computecoin-network.gitbook.io/computecoin/computecoin/about-computecoin-ccn">CCN DOCs</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://www.youtube.com/watch?v=FfQWVQy5kzg&t=4s">Contract</a>
+            <a class="dropdown-item" href="https://www.youtube.com/watch?v=YVZS5c50roo&t=6s">Ale Wallet</a>
             </div>
+          </li>
 
-            <div class="form-group row">
-                <label class="col-form-label font-standard">Password:</label>
-                <div id="form-password">
-                    <input type="text" class="form-control font-standard" id="input-password" name="password" placeholder="password" size="30" style="width: 270px;" required>
-                </div>
-            </div>
-            
-            <div class="form-group row">
-                <div>
-                    <button class="btn btn-danger" type="submit" onclick="submit_signin_Form()">Sign in</button>
-                </div>
-            </div>
-
-            <div id="go_sign_up" onclick="show_signup()">Don't have account? Create Account!</div>
-
-        </form>
-
-
-
-        <form id="sign_up_form">
-
-            <div class="form-group row">
-                <label class="col-form-label font-standard">User Name:</label>
-                <div id="form-user_name">
-                    <input type="text" class="form-control font-standard" id="input-usename-up" name="username" placeholder="username" size="30" style="width: 270px;" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-form-label font-standard">Password:</label>
-                <div id="form-password">
-                    <input type="text" class="form-control font-standard" id="input-password-up" name="password" placeholder="password" size="30" style="width: 270px;" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-form-label font-standard">Email:</label>
-                <div id="form-email">
-                    <input type="text" class="form-control font-standard" id="input-email" name="email" placeholder="email" size="30" style="width: 270px;" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-form-label font-standard">Ale Wallet ID:</label>
-                <div id="form-aleid">
-                    <input type="text" class="form-control font-standard" id="input-aleid" name="aleid" placeholder="ale wallet account id" size="30" style="width: 270px;" required>
-                </div>
-            </div>
-            
-            <div class="form-group row">
-                <div>
-                    <button class="btn btn-danger font-standardr" type="submit" onclick="submit_signup_Form()">Sign up</button>
-                </div>
-            </div>
-
-            <div class="font-standard" id="go_sign_in" onclick="show_signin()">Already have account? Sign in Here!</div>
-        </form>
+          <li class="nav-item font-standard">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container" >   
+          {% block content %}
+          {% endblock %}
     </div>
-</div>
-
-<div class="alert alert-primary" role="alert" id="success-notification"></div>
-
-{% endblock %}
+  
+  </body>
+</html>
 
