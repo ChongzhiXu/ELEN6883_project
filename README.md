@@ -70,6 +70,10 @@
 
 From Columbia University in the city of New York
 
+## Note:
+
+- Because we use a huge template(more than 10000 lines but only less than 100 are used) for frontend design, so the partion of CSS file is high. Please forgive and forget about the portion arrangement
+
 
 [^1]: Huygens Smart Contract: https://www.youtube.com/watch?v=FfQWVQy5kzg&t=4s, Github link: https://github.com/computecoin-network/Huygens_smartcontract_101
 [^2]: Huygens Ale Wallet: https://www.youtube.com/watch?v=YVZS5c50roo&t=6s, Github link: https://github.com/computecoin-network/Huygens_alewallet_101
