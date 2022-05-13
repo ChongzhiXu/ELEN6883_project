@@ -59,6 +59,12 @@ def profile_info():
     items = findItems(token_address)
     return render_template('profile_display.html', items=items)
 
+
+@app.route('/about')
+def about_info():
+    return render_template('about.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login_check():
 
