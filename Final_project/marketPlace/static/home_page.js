@@ -23,7 +23,7 @@ function submit_signin_Form(){
                     $("#success-notification").html("Login Successfully! <a href='" + response["url"] + "'>Go to the Market here!<\a>")
                     $(".form-control").val("")
                     $("#input-name").focus();
-                    $('#sign_in_form').hide()
+                    // $('#sign_in_form').hide()
                 } else {
                     $('.alert').show()
                     $("#success-notification").empty()
@@ -69,7 +69,7 @@ function submit_signup_Form(){
                     $("#success-notification").html("Sign up Successfully! <a href='" + response["url"] + "'>Sign in to access the Market!<\a>")
                     $(".form-control").val("")
                     $("#input-name-up").focus();
-                    $('#sign_up_form').hide()
+                    // $('#sign_up_form').hide()
                 } else {
                     console.log('impossible')
                 }
@@ -99,5 +99,21 @@ $(document).ready(function () {
 
     $('.alert').hide()
     $('#sign_up_form').hide()
+    $("#go_sign_in").hover(
+        function() {
+            $(this).addClass("when_hover")
+        },
+        function() {
+            $(this).removeClass("when_hover")
+        }
+    )
+    $("#go_sign_up").hover(
+        function() {
+            $(this).addClass("when_hover")
+        },
+        function() {
+            $(this).removeClass("when_hover")
+        }
+    )
 
 });
