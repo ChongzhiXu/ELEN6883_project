@@ -19,9 +19,26 @@
         - On Huygens, run this command below  
         - > npx hardhat run scripts/contract.js --network Huygens
     5. Once deployed, you can see the Contract's address and it's balance on terminal.
+    <br/>
+
+2. Enable Ale Wallet access from Browser[^2]-- Using **Huygens_alewallet_access** in the Final project folder<br/>
+    1. Go to the source directory and open terminal, please run this command below 
+        - > npm i
+          > npm run serve
+    2. Then we can see the access of the Ale Wallet in the terminal, the url we use in the DApp<br/>
+    <br/>
+    
+3. Open Google Chrome and install Ale Wallet extension, sign in your account.<br/><br/>
+
+4. Start DApp on Flask Server-- Using **marketPlace** in the Final project folder<br/>
+    1.  **Install Flask**:
+    Go to the source directory and open terminal, follow this [documentation](https://flask.palletsprojects.com/en/2.1.x/installation/) to install Flask<br/>
+    2.  **Run the server.py to open the User Interface**
+        - In the terminal, please run this command below
+        - > python server.py
+    3. Open the Browser and Enter url http://127.0.0.1:5000/ and Enjoy your shopping!<br/> 
 
 
-2. Deploy The Contract -- Using **Huygens_contract_deploy** in the Final project folder<br/><br/>
 ## Functionality
 
 
@@ -39,13 +56,6 @@
 
 From Columbia University in the city of New York
 
-A footnote can also have multiple lines[^2].  
-
-You can also use words, to fit your writing style more closely[^note].
 
 [^1]: Huygens Smart Contract: https://www.youtube.com/watch?v=FfQWVQy5kzg&t=4s, Github link: https://github.com/computecoin-network/Huygens_smartcontract_101
-[^2]: Every new line should be prefixed with 2 spaces.  
-  This allows you to have a footnote with multiple lines.
-[^note]:
-    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
-    This footnote also has been made with a different syntax using 4 spaces for new lines.
+[^2]: Huygens Ale Wallet: https://www.youtube.com/watch?v=YVZS5c50roo&t=6s, Github link: https://github.com/computecoin-network/Huygens_alewallet_101
