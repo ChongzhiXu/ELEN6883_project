@@ -46,7 +46,7 @@
 
 2. Ale Wallet Browser Access<br/>
     1. User Payment Interface
-    2. Payment through CCN Huygens Network<br/>
+    2. Payment through ComputeCoin Huygens Network<br/>
 
 3. Flask Based DApp User Interface<br/>
     1. MongoDB Backend(pymongo)
